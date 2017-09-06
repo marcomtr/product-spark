@@ -1,0 +1,23 @@
+{
+  "name": "product-spark",
+  "version": "1.0.0",
+  "description": "Code sample to validate my interface and dev skills",
+  "scripts": {
+    "compile-sass": "node-sass _sass/ -o assets/ --output-style compressed",
+    "autoprefixer": "postcss -u autoprefixer -r assets/*.css",
+    "lint-scss": "stylelint _sass/*.scss --syntax scss || true",
+    "build:css": "run-p compile-sass autoprefixer",
+    "build": "run-s build:*",
+    "postinstall": "run-s build"
+  },
+  "author": "Marco Monteiro",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "node-sass": "^4.5.3",
+    "normalize.css": "^7.0.0",
+    "npm-run-all": "^4.0.2",
+    "postcss-cli": "^4.1.0",
+    "stylelint": "^8.0.0"
+  }
+}

@@ -1,0 +1,328 @@
+/**
+* Wrapper
+*/
+.u-wrapper {
+	max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+	margin-right: auto;
+	margin-left: auto;
+	padding-right: $spacing-unit;
+	padding-left: $spacing-unit;
+
+	@include media-query('on-laptop') {
+		max-width: calc(#{$content-width} - (#{$spacing-unit} * 3));
+		padding-right: $spacing-unit*3;
+		padding-left: $spacing-unit*3;
+	}
+
+}
+
+/**
+* Screen Reader Only
+*/
+.u-sr-only {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important;
+	-webkit-clip-path: inset(50%) !important;
+	clip-path: inset(50%) !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;
+}
+
+
+/**
+* Max width
+*/
+
+.u-max-width-25 {
+	max-width: 25%;
+
+	&--tablet-up {
+		@include media-query('on-tablet') {
+			max-width: 25%;
+		}
+	}
+}
+
+.u-max-width-40 {
+	max-width: 40%;
+
+	&--tablet-up {
+		@include media-query('on-tablet') {
+			max-width: 40%;
+		}
+	}
+}
+
+.u-max-width-50 {
+	@include media-query('on-tablet') {
+		max-width: 50%;
+	}
+}
+
+.u-max-width-75 {
+	@include media-query('on-tablet') {
+		max-width: 75%;
+	}
+}
+
+/**
+* Background Colour
+*/
+
+.u-bg-black {
+	background-color: #000;
+}
+
+.u-bg-black-opacity-75 {
+	background-color: rgba(0,0,0, 0.75);
+}
+
+.u-bg-gray {
+	background-color: $color-gray-darkest;
+}
+
+.u-bg-brand {
+	background-color: $color-brand-primary;
+}
+
+/**
+* Text Colour
+*/
+.u-t-color-white {
+	color: white !important;
+}
+
+.u-t-color-brand {
+	color: $color-brand-primary !important;
+}
+
+.u-t-color-gray {
+	color: $color-gray !important;
+}
+
+.u-t-color-gray-light {
+	color: $color-gray-light !important;
+}
+
+/**
+* Text Weight
+*/
+
+.u-t-normal {
+	font-weight: 400;
+}
+
+.u-t-bold {
+	font-weight: 700;
+}
+
+/**
+* Text Alignment
+*/
+.u-t-center {
+	text-align: center;
+}
+
+/**
+* Text Size
+*/
+
+.u-t-small {
+	@include font-size-small;
+}
+
+.u-t-medium {
+	@include font-size-medium;
+}
+
+.u-t-large {
+	@include font-size-large;
+}
+
+.u-t-xlarge {
+	@include font-size-xlarge;
+}
+
+.u-t-xxlarge {
+	@include font-size-xxlarge;
+}
+
+.u-t-gradient {
+	background-image: linear-gradient(to right, $color-brand-primary 0%, $color-brand-secondary 100%);
+	color:transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+/**
+* Layout
+*/
+
+.u-flex {
+	display: flex;
+	&--tablet-up {
+		@include media-query('on-tablet') {
+			display: flex;
+		}
+	}
+}
+
+.u-flex-center {
+	align-items: center;
+	justify-content: center;
+	&--tablet-up {
+		@include media-query('on-tablet') {
+			align-items: center;
+			justify-content: center;
+		}
+
+	}
+}
+
+.u-flex-item--half {
+	@include media-query('on-tablet') {
+		width: 50%;
+	}
+}
+
+/**
+* Display
+*/
+
+.u-display-inline {
+	display: inline-block;
+}
+
+/**
+* Background
+*/
+
+.u-bg-image {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.u-bg-fixed {
+	background-attachment: fixed;
+}
+
+.u-bg-image-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: .25;
+}
+
+/**
+* Position
+*/
+
+.u-position-relative {
+	position: relative;
+}
+
+.u-z-index-9 {
+	z-index: 9;
+}
+
+/**
+* Horizontal centering
+*/
+
+.u-margin-auto {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/**
+* Spacing
+*/
+
+$abbrevs : (
+	u-margin: margin,
+	u-padding: padding
+);
+
+$sizes : (
+		xsmall: $spacing-unit/2,
+		small: $spacing-unit,
+		medium: $spacing-unit*2,
+		large: $spacing-unit*3,
+		xlarge: $spacing-unit*4,
+		xxlarge: $spacing-unit*8
+);
+
+// generates utility classes in format:
+// margin-t-xsmall     (margin top xsmall)
+// padding-a-huge       (padding all  huge)
+
+@each $abbrevProp, $abbrev in $abbrevs {
+
+	@each $abbrevSize, $size in $sizes {
+
+		.#{$abbrevProp}-t-#{$abbrevSize} {
+			#{$abbrev}-top : $size/2 !important;
+
+			@include media-query('on-tablet') {
+				#{$abbrev}-top : $size !important;
+			}
+		}
+
+		.#{$abbrevProp}-b-#{$abbrevSize} {
+			#{$abbrev}-bottom : $size/2 !important;
+
+			@include media-query('on-tablet') {
+				#{$abbrev}-bottom : $size !important;
+			}
+		}
+
+		.#{$abbrevProp}-l-#{$abbrevSize} {
+			#{$abbrev}-left : $size/2 !important;
+
+			@include media-query('on-tablet') {
+				#{$abbrev}-left : $size !important;
+			}
+		}
+
+		.#{$abbrevProp}-r-#{$abbrevSize} {
+			#{$abbrev}-right : $size/2 !important;
+
+			@include media-query('on-tablet') {
+				#{$abbrev}-right : $size !important;
+			}
+		}
+
+		.#{$abbrevProp}-v-#{$abbrevSize} {
+			#{$abbrev}: $size/2 0 !important;
+
+			@include media-query('on-tablet') {
+				#{$abbrev}: $size 0 !important;
+			}
+		}
+
+		.#{$abbrevProp}-h-#{$abbrevSize} {
+			#{$abbrev}: 0 $size/2 !important;
+
+			@include media-query('on-tablet') {
+				#{$abbrev}: 0 $size !important;
+			}
+		}
+
+		.#{$abbrevProp}-a-#{$abbrevSize} {
+			#{$abbrev}: $size/2 !important;
+
+			@include media-query('on-tablet') {
+				#{$abbrev}: $size !important;
+			}
+		}
+	}
+
+}

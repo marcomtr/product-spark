@@ -1,0 +1,81 @@
+/**
+* Reset some basic elements
+*/
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+
+
+/**
+* Basic styling
+*/
+body {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	line-height: $base-line-height;
+	color: $text-color;
+}
+
+/**
+* Images
+*/
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+
+/**
+* Links
+*/
+
+a {
+	color: $color-link;
+	text-decoration: none;
+
+	@include on-event {
+		text-decoration: underline;
+	}
+}
+
+/**
+* Lists
+*/
+
+ul {
+	padding-left: 0;
+	margin: 0;
+	list-style: disc;
+}
+
+/**
+* Headings
+*/
+
+
+h1 {
+	@include font-size-xxlarge;
+}
+
+h2 {
+	@include font-size-xlarge;
+}
+
+h3 {
+	@include font-size-large;
+}
+
+h4 {
+	@include font-size-medium;
+}

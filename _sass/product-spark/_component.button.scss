@@ -1,0 +1,108 @@
+// -----------------------------------------------------------------------------
+// Base button
+// -----------------------------------------------------------------------------
+
+// Reset Button Style
+
+[role="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* Reset `button` and button-style `input` default styles */
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+	background: none;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-appearance: button; /* for input */
+	-webkit-user-select: none; /* for button */
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+.btn {
+	display: inline-block;
+	box-sizing: border-box;
+	cursor: pointer;
+	overflow: hidden;
+	font-size: 0.68em;
+	text-align: center;
+	border: 2px solid;
+	padding: 1.35em 2.35em;
+	color: black;
+	background-color: transparent;
+	border-color: transparent;
+	text-decoration: none;
+	transition: all 0.25s ease;
+	font-weight: 700;
+
+	@include on-event {
+		text-decoration: none;
+	}
+
+
+	@include media-query('on-tablet') {
+		padding: 1.35em 3.35em;
+	}
+
+}
+
+// -----------------------------------------------------------------------------
+// Base Button Colors
+// -----------------------------------------------------------------------------
+ 
+.btn--brand {
+
+	background-color: $color-brand-secondary;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+
+	@include on-event {
+		color: white;
+	}
+}
+
+.btn--bordered {
+	background-color: transparent;
+	color: $color-gray;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	border: 3px solid transparent;
+	border-image: linear-gradient(to right, $color-brand-primary 0%, $color-brand-secondary 100%);
+	border-image-slice: 1;
+	transition: all .25s;
+
+	@include on-event {
+		color: black;
+	}
+}
+
+.btn--t--white {
+	color: white;
+	@include on-event {
+		color: $color-gray-light;
+	}
+}
+
+.btn--block {
+	display: block;
+}

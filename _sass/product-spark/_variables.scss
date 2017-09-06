@@ -1,0 +1,56 @@
+// Define defaults for each variable.
+
+/**
+* Colour
+*/
+$color-gray-darkest: #292E31;
+$color-gray: gray;
+$color-gray-light: LightGray;
+$color-gray-lightest: #f7f7f7;
+$color-brand-primary: #F7C700;
+$color-brand-secondary: #5ED0FB;
+$color-link: blue;
+
+/**
+* Font
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900');
+
+$base-font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+$base-line-height: 1.5;
+$base-font-size: 16px;
+
+$font-size-xxlarge: 5em;
+$font-size-xlarge: 3em;
+$font-size-large: 2em;
+$font-size-medium: 1.25em;
+$font-size-small: 0.75em;
+
+$text-color: black;
+
+/**
+* Width of Content Area
+*/
+$content-width: 1280px;
+
+/**
+* Spacing Unit
+*/
+$spacing-unit:16px;
+
+/**
+* Media Queries
+* Use media queries like this:
+* @include media-query($on-laptop) {}
+*/
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+  'on-mobile': 360px,
+  'on-tablet': 768px,
+  'on-laptop': 1024px,
+  'on-desk': 1366px,
+) !default;
