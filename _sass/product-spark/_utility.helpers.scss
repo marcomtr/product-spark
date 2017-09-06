@@ -208,7 +208,9 @@
 }
 
 .u-bg-fixed {
-	background-attachment: fixed;
+	@include media-query('on-laptop') {
+		background-attachment: fixed;
+	}
 }
 
 .u-bg-image-overlay {
